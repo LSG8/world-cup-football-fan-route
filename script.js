@@ -32,7 +32,7 @@ async function run() {
 
     // Draw routes
     for (let i = 0; i < data.route_detail.length; i++) {
-
+        setTimeout(() => {
         const route = data.route_detail[i];
 
         const coords = route.coordinates.map(c => [c[1], c[0]]);
@@ -45,7 +45,7 @@ async function run() {
 
         bounds.push(...coords);
     }
-
+                   },500);
     // Draw match markers
     data.itinerary.forEach((match, index) => {
 
