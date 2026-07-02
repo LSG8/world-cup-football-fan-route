@@ -21,7 +21,7 @@ async function run() {
     const response = await fetch(filename);
     const data = await response.json();
 
-    // Remove previous markers and routes
+    // Remove old markers and routes
     map.eachLayer(function(layer) {
         if (layer instanceof L.Marker || layer instanceof L.Polyline) {
             map.removeLayer(layer);
@@ -30,39 +30,49 @@ async function run() {
 
     let bounds = [];
 
-    // Draw every route
+    // Draw routes
     for (let i = 0; i < data.route_detail.length; i++) {
 
         const route = data.route_detail[i];
 
-        // OSRM stores [lon, lat]
         const coords = route.coordinates.map(c => [c[1], c[0]]);
 
-        const poly = L.polyline(coords, {
+        L.polyline(coords, {
             color: "red",
-            weight: 5
+            weight: 4,
+            opacity: 0.8
         }).addTo(map);
 
         bounds.push(...coords);
-
-        // First coordinate becomes marker
-        const first = coords[0];
-
-        const match = data.itinerary[i];
-
-        L.marker(first)
-            .addTo(map)
-            .bindPopup(`
-                <b>${match.team_a} vs ${match.team_b}</b><br>
-                ${match.city}<br>
-                ${match.stage}<br>
-                ${match.kickoff_utc}
-            `);
     }
 
+    // Draw match markers
+    data.itinerary.forEach((match, index) => {
+
+        const marker = L.marker([match.lat, match.lon]).addTo(map);
+
+        marker.bindPopup(`
+            <b>Match ${index + 1}</b><br>
+            <b>${match.team_a} vs ${match.team_b}</b><br>
+            <b>City:</b> ${match.city}<br>
+            <b>Stage:</b> ${match.stage}<br>
+            <b>Kickoff:</b> ${match.kickoff_utc}<br>
+            <b>Travel from previous:</b> ${match.travel_distance.toFixed(1)} km<br>
+            <b>Driving time:</b> ${match.travel_duration.toFixed(1)} h
+        `);
+
+        bounds.push([match.lat, match.lon]);
+
+    });
+
+    // Zoom to route
     map.fitBounds(bounds);
 
-    document.getElementById("stats").innerHTML =
-        `<b>Total Distance:</b> ${data.distance.toFixed(2)} km<br>
-         <b>Total Duration:</b> ${data.duration.toFixed(2)} hours`;
+    // Statistics
+    document.getElementById("stats").innerHTML = `
+        <h3>${team.charAt(0).toUpperCase() + team.slice(1)}</h3>
+        <p><b>Total Distance:</b> ${data.distance.toFixed(1)} km</p>
+        <p><b>Total Driving Time:</b> ${data.duration.toFixed(1)} h</p>
+        <p><b>Total Matches:</b> ${data.itinerary.length}</p>
+    `;
 }
