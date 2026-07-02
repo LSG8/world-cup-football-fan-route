@@ -45,6 +45,14 @@ async function run() {
 
         bounds.push(...coords);},300*i);
     }
+    //Draw start marker
+    var startIcon = new L.Icon({iconUrl: "ball.jpg"})
+    start_lat = 41.98200805
+    start_lon = -87.90535059
+    startIcon.bindPopup(`
+            <b>Chicago: Start your drive here</b><br>
+        `);
+    bounds.push([start_lat, start_lon]);
     // Draw match markers
     data.itinerary.forEach((match, index) => {
         console.log(match)
