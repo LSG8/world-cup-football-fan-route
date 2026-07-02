@@ -49,6 +49,7 @@ async function run() {
     var startIcon = new L.Icon({iconUrl: "ball.jpg"})
     start_lat = 41.98200805
     start_lon = -87.90535059
+    L.marker([start_lat, start_lon], {icon: startIcon}).addTo(map);
     startIcon.bindPopup(`
             <b>Chicago: Start your drive here</b><br>
         `);
