@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Football World Cup 2026</title>
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body style="background-color: #000000; margin:0;">
+    <div title="Find best team to watch" style="width: 100%; text-align: center; background-color: #ede4e4;">
+        <div id="fan"> Hello, Football Fans! Want to watch matches live?? </div>
+        <div id="desc"> Let's imagine your fav team is going to play the final <img src="yel-hp1.png"></img><img class="emoji" src="yel-hp1.png"></img> 
+            Would you want to miss their matches? <br>Let's visit cities and watch all ⚽ matches of your favourite team</div>
+    </div>
+    <div class="pitch" title="Find best team to watch">
+        <div class="ball-wrapper">
+            <div class="football"></div>
+        </div>
+    </div>
+    <div style="display:flex;">
+        <div id = "textbased">
+            <div id="text">
+            Suppose, you have a rental car waiting at the Chicago airport, 
+            and you want to watch all matches of your favourite team. Select your team and its group position (possible)
+            and find the best route to watch all matches of your favourite team. <br> <br>
+            <select class="button" id="team" required>
+                <option value="" disabled selected hidden>Select your team</option>
+                <option>Argentina</option>
+                <option>Brazil</option>
+                <option>France</option>
+                <option>Spain</option>
+                <option>England</option>
+                <option>Portugal</option>
+                <option>Germany</option>
+                <option>Morocco</option>
+            </select>
+            <select class="button" id="group" required>
+                <option value="" disabled selected hidden>Select group position</option>
+                <option>1st</option>
+                <option>2nd</option>
+            </select>
+            <button class="button" onclick="run()">Find route</button>
+            <br> <br> As a football fan, don't you want to watch more matches?? Let's see how many bonus 
+            matches you can watch at most while watching your favourite team <br> <br>
+            <button class="button" onclick="run()">Find possible bonus matches</button>
+            </div>
+            <div id="stats"></div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
