@@ -28,6 +28,12 @@ async function run() {
             map.removeLayer(layer);
         }
     });
+    //Draw start marker
+    var startIcon = new L.Icon({iconUrl: "ball.jpg",
+                                iconSize:[38, 40]})
+    start_lat = 41.98200805
+    start_lon = -87.90535059
+    L.marker([start_lat, start_lon], {icon: startIcon}).addTo(map);
     let bounds = [];
     // Draw routes
     for (let i = 0; i < data.route_detail.length; i++) {
@@ -39,7 +45,7 @@ async function run() {
             weight: 4,
             opacity: 0.8
         }).addTo(map);
-        bounds.push(...coords);},300*i);
+        bounds.push(...coords);},10*i);
     }
     
     // Draw match markers
