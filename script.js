@@ -13,99 +13,56 @@ let routeLayers = [];
 
 async function run() {
 
-    // -------------------------------
-    // Team selection
-    // -------------------------------
     const team = document.getElementById("team").value.toLowerCase();
     const pos = document.getElementById("group").value;
 
-    // argentina_1st.json
     const filename = `${team}_${pos}.json`;
 
-    // -------------------------------
-    // Read json
-    // -------------------------------
     const response = await fetch(filename);
-
     const data = await response.json();
 
-    // -------------------------------
-    // Remove previous route
-    // -------------------------------
-    routeLayers.forEach(layer => map.removeLayer(layer));
-    routeLayers = [];
+    // Remove previous markers and routes
+    map.eachLayer(function(layer) {
+        if (layer instanceof L.Marker || layer instanceof L.Polyline) {
+            map.removeLayer(layer);
+        }
+    });
 
     let bounds = [];
 
-    // -------------------------------
-    // Draw every leg
-    // -------------------------------
-    data.routes.forEach(route => {
+    // Draw every route
+    for (let i = 0; i < data.route_detail.length; i++) {
 
-        // OSRM geometry
-        const coords = route.geometry.coordinates.map(c => [
-            c[1],
-            c[0]
-        ]);
+        const route = data.route_detail[i];
+
+        // OSRM stores [lon, lat]
+        const coords = route.coordinates.map(c => [c[1], c[0]]);
 
         const poly = L.polyline(coords, {
             color: "red",
             weight: 5
         }).addTo(map);
 
-        routeLayers.push(poly);
-
         bounds.push(...coords);
 
-    });
+        // First coordinate becomes marker
+        const first = coords[0];
 
-    // -------------------------------
-    // Stadium markers
-    // -------------------------------
-    data.matches.forEach(match => {
+        const match = data.itinerary[i];
 
-        const marker = L.marker([
-            match.latitude,
-            match.longitude
-        ]).addTo(map);
+        L.marker(first)
+            .addTo(map)
+            .bindPopup(`
+                <b>${match.team_a} vs ${match.team_b}</b><br>
+                ${match.city}<br>
+                ${match.stage}<br>
+                ${match.kickoff_utc}
+            `);
+    }
 
-        marker.bindPopup(
-            `<b>${match.team_a} vs ${match.team_b}</b><br>
-             ${match.stadium}<br>
-             ${match.city}`
-        );
-
-        routeLayers.push(marker);
-
-    });
-
-    // -------------------------------
-    // Fit map
-    // -------------------------------
     map.fitBounds(bounds);
 
-    // -------------------------------
-    // Statistics
-    // -------------------------------
-    document.getElementById("stats").innerHTML = `
-
-        <h3>${data.team}</h3>
-
-        <p>
-        Distance:
-        ${(data.total_distance/1000).toFixed(1)} km
-        </p>
-
-        <p>
-        Driving:
-        ${(data.total_duration/3600).toFixed(1)} h
-        </p>
-
-        <p>
-        Bonus matches:
-        ${data.bonus_matches}
-        </p>
-
-    `;
-
+    document.getElementById("stats").innerHTML =
+        `<b>Total Distance:</b> ${data.distance.toFixed(2)} km<br>
+         <b>Total Duration:</b> ${data.duration.toFixed(2)} hours`;
 }
