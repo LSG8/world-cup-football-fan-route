@@ -43,9 +43,8 @@ async function run() {
             opacity: 0.8
         }).addTo(map);
 
-        bounds.push(...coords);
+        bounds.push(...coords);},500*i);
     }
-                   },500);
     // Draw match markers
     data.itinerary.forEach((match, index) => {
 
