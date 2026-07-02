@@ -52,6 +52,7 @@ async function run() {
     data.itinerary.forEach((match, index) => {
         console.log(match)
         const marker = L.marker([match.lat, match.lon]).addTo(map);
+        console.log(marker)
         marker.bindPopup(`
             <b>Match ${index+1}</b><br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
@@ -61,7 +62,7 @@ async function run() {
             <b>Travel from previous:</b> ${match.travel_distance.toFixed(1)} km<br>
             <b>Driving time:</b> ${match.travel_duration.toFixed(1)} h
         `);
-        bounds.push([match.lat, match.lon]);
+        // bounds.push([match.lat, match.lon]);
 
     });
 
