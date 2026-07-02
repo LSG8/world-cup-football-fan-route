@@ -72,6 +72,5 @@ async function run() {
         <h3>${team.charAt(0).toUpperCase() + team.slice(1)}</h3>
         <p><b>Total Distance:</b> ${data.distance.toFixed(1)} km</p>
         <p><b>Total Driving Time:</b> ${data.duration.toFixed(1)} h</p>
-        <p><b>Total Matches:</b> ${data.itinerary.length}</p>
     `;
 }
