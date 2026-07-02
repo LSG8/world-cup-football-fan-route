@@ -43,15 +43,15 @@ async function run() {
             opacity: 0.8
         }).addTo(map);
 
-        bounds.push(...coords);},500*i);
+        bounds.push(...coords);},300*i);
     }
     // Draw match markers
     data.itinerary.forEach((match, index) => {
-
+        console.log(match)
         const marker = L.marker([match.lat, match.lon]).addTo(map);
 
         marker.bindPopup(`
-            <b>Match ${index + 1}</b><br>
+            <b>Match ${index+1}</b><br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
             <b>City:</b> ${match.city}<br>
             <b>Stage:</b> ${match.stage}<br>
