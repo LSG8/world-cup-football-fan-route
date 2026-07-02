@@ -103,7 +103,7 @@ async function findbonus() {
             weight: 4,
             opacity: 0.8
         }).addTo(map);
-        bounds.push(...coords);},10*i);
+        bounds.push(...coords);},100*i);
     }
     
     // Draw match markers
