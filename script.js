@@ -46,7 +46,11 @@ async function run() {
         bounds.push(...coords);},300*i);
     }
     //Draw start marker
-    var startIcon = new L.Icon({iconUrl: "ball.jpg",popupAnchor:  [-3, -76]})
+    var startIcon = new L.Icon({iconUrl: "ball.jpg",iconSize:[38, 95], // dimensions of the icon image
+    shadowSize:   [50, 64], // dimensions of the shadow image
+    iconAnchor:   [22, 94], // point of the icon corresponding to marker's location
+    shadowAnchor: [4, 62],  // point of the shadow corresponding to marker's location
+    popupAnchor:  [-3, -76]})
     start_lat = 41.98200805
     start_lon = -87.90535059
     L.marker([start_lat, start_lon], {icon: startIcon}).addTo(map);
