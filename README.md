@@ -13,6 +13,10 @@ The project also tries to find extra matches that a fan can watch without missin
 - Show total driving distance and travel time.
 - Find bonus matches that can be watched between your team's matches.
 
+## Input data
+- Collected FIFA world cup 2026 schedule from https://www.thestatsapi.com/ and https://www.fifa.com/
+- After processing, the input schema is like {Match_id, kickoff_time_utc, teamA, teamB, host_city, latitude, longitude, stage}
+
 ## How it works
 The project uses:
 - Python for data processing and optimization.
@@ -23,6 +27,11 @@ The project uses:
 The optimization has two objectives:
 1. Watch the maximum number of bonus matches.
 2. If there are multiple solutions, choose the one with the shortest driving distance.
+
+How does bonus match calculation work?
+1. Say, match1 is at locationA on 12th June at 21:00 UTC and my team's second match (match2) is at locationB on 19th June 10:00 UTC
+2. I try to find all matches between 12th June 21:00 + match_duration to 19th June 10:00
+3. Then maximize the count of matches considering each match duration and travel time
 
 ## Notes
 This project is made for fun and demonstration.
