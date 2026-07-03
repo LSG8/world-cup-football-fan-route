@@ -55,7 +55,7 @@ async function run() {
     data.itinerary.forEach((match, index) => {
         const marker = L.marker([match.lat, match.lon]).addTo(map);
         console.log("Marker added");
-        console.log(i,m.city,m.lat,m.lon)
+        console.log(index,match.city,match.lat,match.lon)
         marker.bindPopup(`
             <b>Match ${index+1}</b><br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
