@@ -133,7 +133,7 @@ async function findbonus() {
         if (!(key in usedLocations)) {
             usedLocations[key] = 0;
         }
-        const offset = usedLocations[key] * 0.02;
+        const offset = usedLocations[key] * 0.05;
         usedLocations[key]++;
         const lat = match.lat + offset;
         const lon = match.lon + offset;
