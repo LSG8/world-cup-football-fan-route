@@ -49,6 +49,7 @@ async function run() {
     }
         
     // Draw match markers
+    const usedLocations = {};
     data.itinerary.forEach((match, index) => {
         const matchIcon = L.divIcon({
             className: "number-marker",
@@ -56,7 +57,15 @@ async function run() {
             iconSize: [28, 28],
             iconAnchor: [14, 14]
         });
-        const marker = L.marker([match.lat, match.lon],{icon: matchIcon}).addTo(map);
+        const key = `${match.lat},${match.lon}`;
+        if (!(key in usedLocations)) {
+            usedLocations[key] = 0;
+        }
+        const offset = usedLocations[key] * 0.01;   // about 2 km
+        usedLocations[key]++;
+        const lat = match.lat + offset;
+        const lon = match.lon + offset;
+        const marker = L.marker([lat, lon],{icon: matchIcon}).addTo(map);
         marker.bindPopup(`
             <b>Match ${index+1}</b><br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
@@ -113,6 +122,7 @@ async function findbonus() {
     }
     
     // Draw match markers
+    const usedLocations = {};
     data.itinerary.forEach((match, index) => {
         const matchIcon = L.divIcon({
             className: "number-marker",
@@ -120,7 +130,15 @@ async function findbonus() {
             iconSize: [28, 28],
             iconAnchor: [14, 14]
         });
-        const marker = L.marker([match.lat, match.lon],{icon: matchIcon}).addTo(map);
+        const key = `${match.lat},${match.lon}`;
+        if (!(key in usedLocations)) {
+            usedLocations[key] = 0;
+        }
+        const offset = usedLocations[key] * 0.01;   // about 2 km
+        usedLocations[key]++;
+        const lat = match.lat + offset;
+        const lon = match.lon + offset;
+        const marker = L.marker([lat, lon],{icon: matchIcon}).addTo(map);
         marker.bindPopup(`
             <b>Match ${index+1}</b><br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
