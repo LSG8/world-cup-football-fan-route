@@ -61,7 +61,7 @@ async function run() {
         if (!(key in usedLocations)) {
             usedLocations[key] = 0;
         }
-        const offset = usedLocations[key] * 0.01;   // about 2 km
+        const offset = usedLocations[key] * 0.02;
         usedLocations[key]++;
         const lat = match.lat + offset;
         const lon = match.lon + offset;
@@ -134,7 +134,7 @@ async function findbonus() {
         if (!(key in usedLocations)) {
             usedLocations[key] = 0;
         }
-        const offset = usedLocations[key] * 0.01;   // about 2 km
+        const offset = usedLocations[key] * 0.02;
         usedLocations[key]++;
         const lat = match.lat + offset;
         const lon = match.lon + offset;
