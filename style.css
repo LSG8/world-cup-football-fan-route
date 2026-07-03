@@ -72,7 +72,7 @@
 
 .tooltip-image img {
   display: block;
-  width: 1500px;      /* adjust to your image size */
+  width: 600px;      /* adjust to your image size */
   height: auto;
   border-radius: 4px;
 }
