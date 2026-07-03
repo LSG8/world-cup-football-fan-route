@@ -1,5 +1,5 @@
 #map{
-    height:500px;
+    height:600px;
     width:100%;
     position:relative;
     outline-style:solid;
@@ -47,7 +47,7 @@
   z-index: 10;
   bottom: 130%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-60%);
 
   background: #fff;
   padding: 6px;
