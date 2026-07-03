@@ -22,8 +22,6 @@ async function run() {
     const filename = `${team}_${pos}.json`;
     const response = await fetch(filename);
     const data = await response.json();
-    console.log(data.itinerary.length);
-    console.log(data.route_detail.length);
     // Remove old markers and routes
     map.eachLayer(function(layer) {
         if (layer instanceof L.Marker || layer instanceof L.Polyline) {
@@ -41,7 +39,6 @@ async function run() {
     for (let i = 0; i < data.route_detail.length; i++) {
         setTimeout(() => {
         const route = data.route_detail[i];
-        console.log(i,route.coordinates.length)
         const coords = route.coordinates.map(c => [c[1], c[0]]);
         L.polyline(coords, {
             color: "red",
