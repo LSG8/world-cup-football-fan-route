@@ -1,0 +1,3 @@
+Right now, the repository only contains the UI side. The routing algorithm part is yet to be uploaded. 
+This is deployed on GitHub Pages, so no dynamic backend calls are possible. All results are static. That's why all route results are uploaded to the repo. 
+I made the whole project in a couple of days (while working on other projects). So, this is a lot of AI-generated code and contains a lot of issues. Code refactoring and modification are welcome. Please fork and create a PR.
