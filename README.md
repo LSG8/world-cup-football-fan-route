@@ -1,5 +1,4 @@
-# FIFA World Cup Football Fan Route
-Plan the smartest road trip to follow your favourite team
+# FIFA World Cup Football Fan Route: Which team is the best to support if you want to experience as much of the World Cup as possible?
 
 # This is a small fun project to combine football and operations research.
 This is a small fun project for football fans.
