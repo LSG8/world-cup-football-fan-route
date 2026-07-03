@@ -45,6 +45,19 @@
     color:white;
     margin:8px
 } */
+.number-marker div {
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:#1976d2;
+    color:white;
+    text-align:center;
+    line-height:28px;
+    font-weight:bold;
+    border:2px solid white;
+    box-shadow:0 0 4px rgba(0,0,0,0.4);
+    font-size:14px;
+}
 .button {
     position: relative;
     text-align: center;
