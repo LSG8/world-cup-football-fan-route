@@ -1,5 +1,5 @@
 // Global map
-let map = L.map("map").setView([39, -98], 4);
+let map = L.map("map").setView([39, -98], 7);
 L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
