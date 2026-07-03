@@ -11,7 +11,7 @@
 </head>
 <body style="background-color: #000000; margin:0;">
     <div title="Find best team to watch" style="width: 100%; text-align: center; background-color: #ede4e4;">
-        <div id="fan"> Hello, Football Fans! Want to watch matches live?? </div>
+        <div id="fan"> Hi Fans! Can you follow your team all the way to Final? </div>
         <div id="desc"> Let's imagine your fav team is going to play the final <img src="yel-hp1.png"></img><img class="emoji" src="yel-hp1.png"></img> 
             Would you want to miss their matches? <br>Let's visit cities and watch all ⚽ matches of your favourite team</div>
     </div>
@@ -23,9 +23,9 @@
     <div style="display:flex;">
         <div id = "textbased">
             <div id="text">
-            Suppose, you have a rental car waiting at the Chicago airport, 
-            and you want to watch all matches of your favourite team. Select your team and its group position (possible)
-            and find the best route to watch all matches of your favourite team. <br> <br>
+            Assume your team wins every match. Now plan the ultimate football road trip!!! <br>
+            Start your road trip from Chicago Airport and follow your favourite team to the World Cup Final.
+            Choose your team and its group finish (possible). The planner builds the driving route for every match. <br> <br>
             <select class="button" id="team" required>
                 <option value="" disabled selected hidden>Select your team</option>
                 <option>Argentina</option>
@@ -38,7 +38,7 @@
                 <option>Morocco</option>
             </select>
             <select class="button" id="group" required>
-                <option value="" disabled selected hidden>Select group position</option>
+                <option value="" disabled selected hidden>Select group finish</option>
                 <option>1st</option>
                 <option>2nd</option>
             </select>
@@ -48,6 +48,7 @@
             <button class="button" onclick="findbonus()">Find possible bonus matches</button>
             </div>
             <div id="stats"></div>
+            <br> <br><br> <br><br> <br>Built with Python, OSRM, OpenStreetMaps, and Leaflet
         </div>
         <div id="map"></div>
     </div>
