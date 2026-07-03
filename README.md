@@ -27,4 +27,4 @@ The optimization has two objectives:
 ## Notes
 This project is made for fun and demonstration.
 The code is intentionally simple.
-If you have ideas to improve the optimization or add new features, feel free to fork the repository or open an issue.
+If you have ideas to improve the optimization or add new features, feel free to fork the repository or open an issue. There are some limitations listed in the limatation_v<number>.txt file.
