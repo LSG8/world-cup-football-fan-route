@@ -68,12 +68,11 @@ async function run() {
         const marker = L.marker([lat, lon],{icon: matchIcon}).addTo(map);
         marker.bindPopup(`
             <b>Match ${index+1}</b><br>
+            <b>Stage:</b> ${match.stage}<br>
             <b>${match.team_a} vs ${match.team_b}</b><br>
             <b>City:</b> ${match.city}<br>
-            <b>Stage:</b> ${match.stage}<br>
-            <b>Kickoff:</b> ${match.kickoff_utc}<br>
+            <b>Kickoff:</b> ${match.kickoff_utc} (UTC)<br>
             <b>Travel from previous:</b> ${match.travel_distance.toFixed(1)} km<br>
-            <b>Driving time:</b> ${match.travel_duration.toFixed(1)} h
         `);
         bounds.push([match.lat, match.lon]);
 
@@ -83,7 +82,7 @@ async function run() {
     map.fitBounds(bounds);
     // Statistics
     document.getElementById("stats").innerHTML = `
-        <h3>${team.charAt(0).toUpperCase() + team.slice(1)}</h3>
+        <h3>${team.charAt(0).toUpperCase() + team.slice(1)}, matches = 8</h3>
         <p><b>Total Distance:</b> ${data.distance.toFixed(1)} km</p>
         <p><b>Total Driving Time:</b> ${data.duration.toFixed(1)} h</p>
     `;
@@ -157,6 +156,7 @@ async function findbonus() {
     document.getElementById("stats").innerHTML = `
         <h3>${team.charAt(0).toUpperCase() + team.slice(1)}</h3>
         <p><b>Bonus matches:</b> ${data.bonus} </p>
+        <p><b>Total matches:</b> ${data.bonus} + 8 </p>
         <p><b>Total Driving Distance:</b> ${data.distance.toFixed(1)} km</p>
     `;
 }
