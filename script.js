@@ -9,8 +9,8 @@ L.tileLayer(
 ).addTo(map);
 
 //Draw start marker
-    var startIcon = new L.Icon({iconUrl: "ball.jpg",
-                                iconSize:[38, 39]})
+    var startIcon = new L.Icon({iconUrl: "car.png",
+                                iconSize:[45, 39]})
     start_lat = 41.98200805
     start_lon = -87.90535059
     L.marker([start_lat, start_lon], {icon: startIcon}).addTo(map);
@@ -29,8 +29,8 @@ async function run() {
         }
     });
     //Draw start marker
-    var startIcon = new L.Icon({iconUrl: "ball.jpg",
-                                iconSize:[38, 39]})
+    var startIcon = new L.Icon({iconUrl: "car.png",
+                                iconSize:[45, 39]})
     start_lat = 41.98200805
     start_lon = -87.90535059
     L.marker([start_lat, start_lon], {icon: startIcon}).addTo(map);
