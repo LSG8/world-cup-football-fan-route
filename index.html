@@ -11,9 +11,9 @@
 </head>
 <body style="background-color: #000000; margin:0;">
     <div title="Find best team to watch" style="width: 100%; text-align: center; background-color: #ede4e4;">
-        <div id="fan"> Hi Fans! Can you follow your team all the way to Final? </div>
-        <div id="desc"> Let's imagine your fav team is going to play the final <img src="yel-hp1.png"></img><img class="emoji" src="yel-hp1.png"></img> 
-            Would you want to miss their matches? <br>Let's visit cities and watch all ⚽ matches of your favourite team</div>
+        <div id="fan"> <b></b>Hi Fans! Can you follow your team all the way to Final?</b> </div>
+        <div id="desc"> Imagine your favourite team is heading to the Final — would you want to miss a single match? 
+        <br>Let's visit every city and catch all their ⚽ games along the way</div>
     </div>
     <div class="pitch" title="Find best team to watch">
         <div class="ball-wrapper">
@@ -23,9 +23,9 @@
     <div style="display:flex;">
         <div id = "textbased">
             <div id="text">
-            Assume your team wins every match. Now plan the ultimate football road trip!!! <br>
-            Start your road trip from Chicago Airport and follow your favourite team to the World Cup Final.
-            Choose your team and its group finish (possible). The planner builds the driving route for every match. <br> <br>
+            Assume your team wins the cup. Now plan the ultimate football road trip!!! <br>
+            Start driving a rental car from Chicago Airport, follow your favourite team match by match, all the way to the World Cup Final
+            Choose your team and its group finish (1st/2nd). The planner builds the driving route for every match. <br> <br>
             <select class="button" id="team" required>
                 <option value="" disabled selected hidden>Select your team</option>
                 <option>Argentina</option>
@@ -43,12 +43,12 @@
                 <option>2nd</option>
             </select>
             <button class="button" onclick="run()">Find route</button>
-            <br> <br> As a football fan, don't you want to watch more matches?? Let's see how many bonus 
-            matches you can watch at most while watching your favourite team <br> <br>
+            <br> <br> <div style="color: #fff47d;">As a true football fan, why stop at just your team's matches? 
+                See how many bonus matches you can catch along the way — just make sure you leave enough time to get to your team's next match</div><br> <br>
             <button class="button" onclick="findbonus()">Find possible bonus matches</button>
             </div>
             <div id="stats"></div>
-            <br> <br><br> <br><br> <br>Built with Python, OSRM, OpenStreetMaps, and Leaflet
+            <br> <br><br> <br><br> <br><div style="color: #c0c0c0; font-size: 6px;">Built with Python, OSRM, OpenStreetMaps, and Leaflet
         </div>
         <div id="map"></div>
     </div>
