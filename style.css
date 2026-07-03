@@ -45,6 +45,55 @@
     color:white;
     margin:8px
 } */
+.info-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+.tooltip-image {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 10;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #fff;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-image img {
+  display: block;
+  width: 240px;      /* adjust to your image size */
+  height: auto;
+  border-radius: 4px;
+}
+
+/* little arrow pointing down */
+.tooltip-image::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+.info-tooltip:hover .tooltip-image {
+  visibility: visible;
+  opacity: 1;
+}
 .number-marker div {
     width:28px;
     height:28px;
