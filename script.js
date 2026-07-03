@@ -114,9 +114,7 @@ async function findbonus() {
             <b>${match.team_a} vs ${match.team_b}</b><br>
             <b>City:</b> ${match.city}<br>
             <b>Stage:</b> ${match.stage}<br>
-            <b>Kickoff:</b> ${match.kickoff_utc}<br>
-            <b>Travel from previous:</b> ${match.travel_distance.toFixed(1)} km<br>
-            <b>Driving time:</b> ${match.travel_duration.toFixed(1)} h
+            <b>Kickoff:</b> ${match.kickoff_utc}
         `);
         bounds.push([match.lat, match.lon]);
 
